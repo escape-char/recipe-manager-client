@@ -1,0 +1,11 @@
+@import "../../../public/scss/variables.scss";
+
+.signin-container{
+  background:#c5c5c5;
+  width:110%;
+}
+.signin-header-title{
+  margin:0;
+  padding:0;
+  font-size:$signin_header_font_size;
+}

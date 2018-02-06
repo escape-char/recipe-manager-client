@@ -1,0 +1,36 @@
+<section class="section list-editor">
+  <header class="list-editor-header">
+    <h2 class="list-editor-header-title"> Ingredients</h2>
+    <div class class="list-editor-header-actions">
+      <a class="list-editor-header-action"
+       (click)="onAddClicked()"><i class="fa fa-plus"></i></a>
+    </div>
+  </header>
+  <div class="list-editor-content">
+    <ul class="list-editor-items" *ngIf="ingredients.length > 0">
+       <li class="list-editor-item"
+         *ngFor="let i of ingredients">
+         <a class="list-editor-item-name"
+         (click)="onUpdateClicked(i)"
+         >{{i.item}}</a>
+         <div dropdownMenu>
+           <a class="list-editor-item-actions dropdown-toggle"><i class="fa fa-cog"></i></a>
+           <ul class="dropdown-menu">
+             <i  class="fa fa-caret-up arrow-up"></i>
+             <li class="dropdown-item"
+             (click)="onUpdateClicked(i)"
+             > Edit </li>
+             <li class="dropdown-item"
+              (click)="onDeleteClicked(i)"
+             >Delete </li>
+           </ul>
+         </div>
+        </li>
+    </ul>
+    <p *ngIf="ingredients.length == 0">
+      No Ingredients Added.
+    </p>
+  </div>
+  <footer class="list-editor-footer">
+  </footer>
+</section>

@@ -1,0 +1,58 @@
+<form class="pure-form pure-form-stacked ingredient-form"
+  [formGroup]="ingredientForm"
+  novalidate>
+  <fieldset>
+    <label>Ingredient
+    </label>
+    <input id="description"
+    class="small"
+    type="text"
+    name="item"
+    formControlName="item"
+     placeholder="Ingredient">
+     <p
+     class="error"
+     [hidden]="getControl('item').untouched || !getErrors('item').required">
+       Ingredient is required.
+    </p>
+    <dropdown-list [ddItems]="unitTypeDropdown"
+      [ddLabel]="'Unit Type'"
+      (onItemSelected)="onUnitTypeSelected($event)">
+    </dropdown-list>
+    <div *ngIf="selectedUnitType" class="amount-container" class="inline-block">
+      <label> Amount </label>
+      <input type="number"
+       name="amount"
+       step="0.01"
+       required
+       placeholder="Amount"
+       formControlName="amount">
+       <p
+       class="error"
+       [hidden]="getControl('amount').untouched || !getErrors('amount').required">
+         Amount is required.
+      </p>
+       <p
+       class="error"
+       [hidden]="getControl('amount').untouched || !getErrors('amount').number">
+       Invalid number entered.
+      </p>
+       <p
+       class="error"
+       [hidden]="getControl('amount').untouched || !getErrors('amount').min">
+       Amount must be greater than 0.
+      </p>
+       <p
+       class="error"
+       [hidden]="getControl('amount').untouched || !getErrors('amount').max">
+       Amount must be less than 10,000.
+      </p>
+    </div>
+    <div *ngIf="prefixDropdown">
+      <dropdown-list class="prefix-container"[ddItems]="prefixDropdown"
+        [ddLabel]="'Unit Prefix'"
+        (onItemSelected)="onPrefixSelected($event)">
+      </dropdown-list>
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,50 @@
+<section class="browse-panel pure-u-1 pure-u-md-8-24 pure-u-lg-8-24 pure-u-xl-4-24"
+[@categoriesState]="state"
+>
+<div class="browse-panel-header">
+  <h2 class="browse-panel-header__title">Categories </h2>
+  <p class="error" *ngIf="error"> {{error}}</p>
+  <ul class="browse-panel-actions pull-right">
+    <li class="browse-panel-action">
+      <button class="browse-panel-action-btn" (click)="onAddClicked()">
+        <i class="fa fa-plus"></i>
+      </button>
+    </li>
+  </ul>
+</div>
+<div class="browse-panel-content">
+  <ul id="global-category-list" class="browse-default-list">
+    <li [ngClass]="{'browse-item--active': c.selected}"
+      (click)="onDefaultCategoryClicked(c)"
+      class="browse-item" *ngFor="let c of defaultCategories">
+        <i [ngClass]="{'fa-heart': c.name=='Favorites', 'fa-book': c.name=='All'}" class="browse-item-icon fa"> </i>
+        <span class="browse-item-name">{{c.name}}</span>
+        <span class="browse-item-badge" *ngIf="c.totalRecipes">{{c.totalRecipes}}</span>
+    </li>
+  </ul>
+  <hr class="browse-list-divider"/>
+  <p *ngIf="myCategories.length == 0"class="browse-list-empty">
+    No Categories Added.
+  </p>
+  <ul id="user-category-list" class="browse-default-list">
+    <li [ngClass]="{'browse-item--active': c.selected}"
+      (click)="onCategoryClicked(c)"
+      class="browse-item" *ngFor="let c of myCategories">
+      <span class="browse-item-name">{{c.name}}</span>
+      <div dropdownMenu>
+        <a class="browse-item-actions dropdown-toggle">
+          <span><i class="fa fa-cog"></i></span>
+        </a>
+        <ul class="dropdown-menu">
+          <i  class="fa fa-caret-up arrow-up"></i>
+          <li class="dropdown-item"
+            (click)="onRenameClicked(c)">Rename</li>
+          <li class="dropdown-item"
+            (click)="onDeleteClicked(c)"
+          >Delete</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+</section>

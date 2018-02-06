@@ -1,0 +1,36 @@
+.recipe-container{
+  padding:25px;
+}
+.recipe-image{
+  position:relative;
+  float:left;
+  height:300px;
+  text-align:center;
+  width:30%;
+}
+.recipe-basic-info{
+  position:relative;
+  float:left;
+  margin-left:25px;
+  input[name='servings']{
+    width:6em;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .recipe-container{
+    padding:5px;
+  }
+  .recipe-image{
+    height:200px;
+    min-width:200px;
+    margin-bottom:20px;
+
+  }
+   .recipe-basic-info{
+     display:block;
+     margin-left:5px;
+     clear:both;
+    width:100%;
+  }
+}

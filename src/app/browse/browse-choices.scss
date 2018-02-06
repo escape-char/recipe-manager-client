@@ -1,0 +1,18 @@
+.browse-platforms{
+  margin:0;
+  padding:15px 0 0 0;
+  > .browse-platform{
+    height:2em;
+    padding: 10px 0 5px 65px;
+    font-size:1.2em;
+    > .browse-platform-label{
+      color:#444242;
+      position:absolute;
+      top:15px;
+    }
+    > i{
+      color:#909090;
+      font-size:1.6em;
+    }
+  }
+}

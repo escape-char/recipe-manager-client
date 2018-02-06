@@ -1,0 +1,82 @@
+.difficulty-slider-container{
+  width:90%;
+  margin-top:40px ;
+  > .difficulty-slider{
+    padding-top:15px;
+    padding-bottom:15px;
+    width:100%;
+    position:relative;
+    min-height:20px;
+    > .difficulty-slider-overlay{
+      position:absolute;
+      left:5px;
+      top:15px;
+      width:100%;
+      height:10px;
+    }
+    >.difficulty-slider-line{
+      width:100%;
+      height:10px;
+      background:#e0e0e0;
+    }
+    >.difficulty-label{
+      top:-30px;
+      color:#9e9e9e;
+      font-size:0.8em;
+      position:absolute;
+      height:10px;
+      width:8em;
+      &.easy{
+        left:0;
+      }
+      &.medium{
+        left:48%;
+      }
+      &.difficult{
+        text-align:right;
+        right:0;
+      }
+    }
+    >.difficulty-choice{
+      top:0px;
+      position:absolute;
+      height:35px;
+      width:35px;
+      background:lightgray;
+      border-radius:20px;
+      &.easy{
+        left:0;
+        &.active{
+          background:blue;
+        }
+      }
+      &.medium{
+        left:50%;
+        &.active{
+          background:yellow;
+        }
+      }
+      &.difficult{
+        right:-5px;
+        &.active{
+          background:red;
+        }
+      }
+    }
+    >.difficulty-slider-handle{
+      position:absolute;
+      color:#9e9e9e;
+      text-align:center;
+      left:12px;
+      top: 8px;
+      height:25px;
+      width:35px;
+      background:#7a7a7a;
+      border-radius:5px;
+    }
+    >.difficulty-slider-handle:hover{
+      background:darken(#7a7a7a, 10%);
+
+    }
+  }
+}

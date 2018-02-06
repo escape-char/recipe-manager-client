@@ -1,0 +1,108 @@
+.recipe-list-container{
+  padding:15px;
+}
+.recipe-list-empty{
+  margin-left:15px;
+  color:gray;
+}
+.recipes-list{
+  margin:0 0 25px 0;
+  padding:0 0 20px 0;
+  max-height:calc(100% - 160px);
+  width:95%;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  > .recipe-item:nth-child(even){
+    background:#fbfbfb;
+  }
+  > .recipe-item:nth-child(odd){
+    background:#f9f9f9;
+
+  }
+  >.recipe-item-spinner{
+    min-height:20px;
+    margin-top:10px;
+    text-align:center;
+    font-size: 1.4em;
+    color:gray;
+  }
+  > .recipe-item{
+    padding-top:15px;
+    > .recipe-item-no-image{
+      height:50px;
+      width:20%;
+      position:relative;
+      float:left;
+    }
+    > .recipe-item-basic{
+      width:80%;
+      position:relative;
+      float:right;
+      > .recipe-item-title{
+        font-size:1.2em;
+        color: #6b6b6b;
+        padding:5px 0 0 0;
+        margin:0;
+        > .recipe-item-cog{
+          position:relative;
+          color:#a0a0a0;
+          float:right;
+          font-size:1em;
+          margin-right:10px;
+          display:none;
+        }
+        > .recipe-item-cog:hover{
+          color:darken(#a0a0a0, 10%);
+        }
+      }
+      > .recipe-item-source{
+        color:#b9b9b9;
+        font-size:0.7em;
+        font-weight:100;
+        font-style: italic;
+        text-indent:10px;
+        margin:0;
+        padding:0;
+      }
+      >.recipe-item-description{
+        color:#888888;
+        max-width:15em;
+        margin-left:15px;
+        font-size:1em;
+      }
+      >.recipe-item-details{
+        margin-left:10px;
+        .recipe-item-count > i{
+          color:gray;
+
+        }
+        .recipe-item-count{
+          margin-right:10px;
+        }
+
+      }
+      >.recipe-item-date{
+        color:#b7b7b7;
+        font-size:0.8em;
+        text-align:right;
+        margin-right:25px;
+      }
+    }
+
+  }
+  > .recipe-item:hover{
+    background:#efefef;
+    > .recipe-item-basic{
+      > .recipe-item-title{
+        > .recipe-item-cog{
+          position:relative;
+          float:right;
+          font-size:1em;
+          margin-right:10px;
+          display:inline-block;
+        }
+      }
+    }
+  }
+}

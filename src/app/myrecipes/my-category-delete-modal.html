@@ -1,0 +1,33 @@
+<div class="modal modal--open"
+[@fadeInOut]="state"
+ >
+  <div class="modal__dialog modal__dialog--small"
+  [@slideInOut]="state">
+    <header class="modal__header">
+      <h2 class="modal__header__h2"> Delete Category </h2>
+    </header>
+    <div class="modal__body group">
+      <section class="section">
+        <header class="section__header">
+        </header>
+        <div class="group">
+          <p class="error" *ngIf="error"> {{error}}</p>
+          <p class="confirm-message"> Are you sure you want to delete category <em>'{{category.name}}'</em>? </p>
+        </div>
+      </section>
+    </div>
+    <footer class="modal__footer">
+      <div class="btn-group">
+        <button class="pure-button pure-button-secondary" (click)="close()">No</button>
+         <action-button
+           defaultClasses="pure-button pure-button-primary pure-button-primary--delete"
+          (onAction)="onDeleteClicked()"
+          [actionDisabled]="submitting"s
+          defaultType="submit"
+          busyLabel="Deleting..."
+          defaultLabel="Yes"
+          [busy]="submitting"></action-button>
+      </div>
+    </footer>
+  </div>
+</div>

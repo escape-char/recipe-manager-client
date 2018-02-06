@@ -1,0 +1,71 @@
+label{
+  letter-spacing: normal;
+  font-size:1.05em;
+  color:#8f8f8e;
+}
+fieldset{
+  border:none;
+}
+::placeholder{
+  color:#aea9a9;
+}
+input[type="text"],
+input[type=password],
+input[type="email"],
+textarea{
+  &.small{
+    width:15em;
+  }
+  padding:3px;
+  width:35em;
+}
+.error{
+  color:#ff2f2f;
+  padding:0;
+  margin:0;
+  margin-bottom:10px;
+  margin-left:10px;
+}
+.pure-form input[type=text]:focus,
+.pure-form input[type=password]:focus,
+.pure-form input[type=email]:focus,
+.pure-form-stacked input[type=text]:focus,
+.pure-form-stacked input[type=password]:focus,
+.pure-form-stacked input[type=email]:focus,
+{
+  border-width:2px;
+  border-color:#3978ca;
+}
+input[type=text].ng-invalid:focus,  input[type="email"].ng-invalid:focus,
+input[type=password].ng-invalid:focus, textarea.ng-invalid:focus{
+  border: 2px solid #cd4141;
+}
+input[type=text].ng-valid:focus, input[type="email"].ng-valid:focus,
+input[type=password].ng-valid:focus, textarea.ng-valid:focus{
+  border: 2px solid #40d440;
+}
+
+//mobile settings
+@media screen and (max-width: 568px){
+  form{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  input[type="text"],
+  input[type=password],
+  input[type="email"]{
+    width:10em;
+  }
+
+
+}
+//mobile settings
+@media screen and (max-width: 768px){
+  input[type="text"],
+  input[type=password],
+  input[type="email"],
+  textarea{
+    width:15em;
+  }
+
+}

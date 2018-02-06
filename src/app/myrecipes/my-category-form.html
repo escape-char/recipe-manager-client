@@ -1,0 +1,25 @@
+<form class="pure-form pure-form-stacked"
+  [formGroup]="categoryForm"
+  novalidate>
+  <fieldset>
+    <label>Name
+      <field-spinner [showSpinner]="getControl('name').pending"></field-spinner>
+    </label>
+    <input id="name"
+    class="small"
+    type="text"
+    name="name"
+    formControlName="name"
+     placeholder="Category">
+     <p
+     class="error"
+     [hidden]="getControl('name').untouched || !getErrors('name').required">
+       Category is required.
+    </p>
+    <p
+    class="error"
+    [hidden]="getControl('name').untouched || !getErrors('name').available">
+      Category already exists.
+   </p>
+  </fieldset>
+</form>

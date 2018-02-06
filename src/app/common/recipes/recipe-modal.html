@@ -1,0 +1,73 @@
+<div class="modal modal--open"
+[style.zIndex]="zIndex"
+[@fadeInOut]="state"
+ >
+  <div class="modal__dialog modal__dialog--extra-large"
+  [@slideInOut]="state">
+    <header class="modal__header">
+      <h2 class="modal__header__h2"> {{title}}</h2>
+    </header>
+    <div class="modal__body group">
+      <section class="section">
+        <header class="section__header">
+        </header>
+        <div class="group recipe-container">
+          <div class="group">
+            <p class="error" *ngIf="error"> {{error}}</p>
+            <div class="recipe-image">
+                <modify-image [b64ImageFile]="image"></modify-image>
+            </div>
+            <div class="recipe-basic-info">
+              <recipe-form [recipeForm]="recipeForm"></recipe-form>
+              <difficulty-slider [difficulty]="recipe.difficulty"></difficulty-slider>
+              <div class="group">
+                  <label> Servings </label>
+                  <div>
+                    <input type="number"
+                       min="1"
+                       max="10000"
+                       name="servings"
+                      [(ngModel)]="recipe.servings"
+                      (ngModelChange)="onServingsChanged($event)">
+                  </div>
+              </div>
+              <hour-minute time="recipe.prepTime" label="Prep Time"></hour-minute>
+              <hour-minute time="recipe.prepTime" label="Cook Time"></hour-minute>
+              <div class="pure-form pure-form-stacked">
+                <category-chip [categories]="categories">
+                </category-chip>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="pure-g">
+        <ingredients [ingredients]="ingredients" class="pure-u-md-1  pure-u-lg-1-3 pure-u-xl-1-3 pure-u-sm-1"></ingredients>
+        <directions [directions]="directions"class="pure-u-md-1  pure-u-lg-1-3 pure-u-xl-1-3 pure-u-sm-1"></directions>
+      </div>
+    </div>
+    <footer class="modal__footer">
+      <div class="btn-group">
+        <button class="pure-button pure-button-secondary" (click)="close()">Cancel</button>
+        <action-button
+          *ngIf="action == ACTION_UPDATE"
+          defaultClasses="pure-button pure-button-primary pure-button-primary--add"
+         (onAction)="onSubmitClicked()"
+         [actionDisabled]="!recipeForm.valid || submitting"
+         defaultType="submit"
+         busyLabel="Updating..."
+         defaultLabel="Update"
+         [busy]="submitting"></action-button>
+         <action-button
+           *ngIf="action == ACTION_NEW"
+           defaultClasses="pure-button pure-button-primary pure-button-primary--add"
+          (onAction)="onSubmitClicked()"
+          [actionDisabled]="!recipeForm.valid || submitting"
+          defaultType="submit"
+          busyLabel="Adding..."
+          defaultLabel="Add"
+          [busy]="submitting"></action-button>
+      </div>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,125 @@
+@import './variables.scss';
+.browse-panel{
+  background:$browse_panel_background;
+  height:100%;
+  min-width:150px;
+  position:relative;
+  z-index:10;
+}
+.browse-panel-search{
+  padding:5px;
+  .pure-form input[type=text]{
+    width:90%;
+  }
+}
+.browse-panel--secondary{
+  background:$browse_panel_secondary_background;
+  z-index:7;
+}
+.browse-default-list{
+  padding:0;
+  margin:0;
+  position:relative;
+  margin-top:10px;
+  color:#5d5d60;
+}
+.browse-list-divider{
+  width:90%;
+  margin-left: 10px;
+  border-color: #ece8e8;
+}
+.browse-list-empty{
+  margin-left:25px;
+  font-size:0.95em;
+  color:gray;
+}
+.browse-panel-content{
+  height:100%;
+  max-height:100%;
+}
+.browse-panel-header--secondary{
+  background:inherit;
+}
+.browse-item-icon{
+  position:absolute;
+  left: 10px;
+}
+.browse-item-badge{
+  position:absolute;
+  right:10px;
+  top: 5px;
+  background:gray;
+  font-size: 0.8em;
+  padding:3px 5px 3px 5px;
+  border-radius: 10px;
+  color:white;
+}
+.browse-item-actions{
+  position:absolute;
+  display:none;
+  top:5px;
+  right:10px;
+}
+.browse-item{
+  margin-bottom:5px;
+  position:relative;
+  padding:5px 5px 5px 45px;
+  cursor:pointer;
+}
+
+.browse-item:hover, .browse-item:active{
+  background:#f5e2df;
+  .browse-item-actions{
+    display:block;
+  }
+}
+.browse-item--active{
+  background:#f5e2df;
+}
+.browse-panel-actions{
+  margin:0;
+  padding:0;
+  padding-top:8px;
+  color:$browse_panel_actions_color;
+}
+.browse-panel-action{
+  display:inline;
+  margin-right:10px;
+  cursor:pointer;
+}
+.browse-panel-action:hover{
+  color:$browse_panel_actions_active_color;
+  font-weight:300;
+  font-size:1.1em;
+}
+.browse-panel-action-btn{
+  margin:0;
+  padding:0;
+  border:0;
+  background:inherit;
+}
+.browse-panel-header{
+  background:$browse_panel_header_background;
+}
+.browse-panel-header__title{
+  display:inline-block;
+  margin-left:15px;
+  font-size:0.75em;
+  color: $browse_panel_header_color;
+
+}
+@media screen and (max-width: 1024px){
+  .browse-item-actions{
+    display:block;
+  }
+}
+
+@media screen and (max-width: 568px){
+  .browse-item-icon{
+    left:5px;
+
+  }
+  .browse-item-actions{
+    display:block;
+  }
+}

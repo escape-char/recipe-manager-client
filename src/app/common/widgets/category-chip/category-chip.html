@@ -1,0 +1,29 @@
+<div class="category-chips-container">
+  <label> Categories </label>
+  <div class="category-chips">
+    <div class="category-chip"
+     *ngFor="let c of categories">
+       <span>{{c.name}}</span>
+       <a class="category-chip-remove-btn"
+        (click)="onDeleteChip(c)">x</a>
+     </div>
+      <p
+        contenteditableModel
+        class="category-chip-input"
+        contenteditable="true"
+        contenteditablePlaceholder="Enter Category"
+        contenteditablePlaceholderClass="category-chip-placeholder"
+        [(contenteditableModelValue)]="newCategory"
+       (onContenteditableChange)="onInputChange(value)"
+       (onContenteditableBlur)="onInputBlur(value)">
+    </p>
+    <ul class="category-chips-typeahead" *ngIf="newCategory.content &&  availCategories.length >0">
+      <li class="category-chips-typeahead-item"
+        (click)="onTypeaheadClicked(a)"
+        *ngFor="let a of availCategories">
+        {{a.name}}
+      </li>
+    </ul>
+  </div>
+
+</div>

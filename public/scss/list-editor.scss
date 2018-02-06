@@ -1,0 +1,89 @@
+.list-editor{
+  padding:10px;
+  margin:0;
+  > .list-editor-header{
+    padding:5px;
+    > .list-editor-header-title{
+      padding:0;
+      margin:0;
+      color:#5a5959;
+      font-size:18px;
+      display: inline-block;
+      font-weight:300;
+
+    }
+    > .list-editor-header-actions{
+      position:relative;
+      float:right;
+      width:auto;
+      >.list-editor-header-action{
+        font-size:16px;
+        color:#898989;
+        cursor:pointer;
+      }
+      > .list-editor-header-action:hover{
+        color: darken(#898989, 10%);
+      }
+    }
+  }
+  > .list-editor-content{
+    background: #ececec;
+    border-radius: 5px;
+    padding:15px;
+    margin:0;
+    p{
+      color: #7f7f7f;
+    }
+    ul.list-editor-items, ol.list-editor-items{
+      list-style:square;
+      color: #a8a7a7;
+      margin:0;
+      margin-left: 10px;
+      padding:0;
+      min-height:50px;
+        > li.list-editor-item{
+          padding:5px;
+          position:relative;
+          margin-bottom:8px;
+          > .list-editor-item-name{
+            cursor:pointer;
+            color:#646262;
+          }
+          > .list-editor-item-name:hover{
+            color:darken(#646262, 10%);
+          }
+          .list-editor-item-actions {
+            cursor:pointer;
+            display:none;
+            position:absolute;
+            font-size:20px;
+            color:#a4a0a0;
+            top:0px;
+            right:0px;
+          }
+          .list-editor-item-actions:hover{
+            color:darken(#a4a0a0, 10%);
+          }
+          .dropdown-menu{
+            top:28px;
+          }
+
+        }
+        > li.list-editor-item:hover{
+          background: #e8e8e8;
+          .list-editor-item-actions{
+            display:block;
+          }
+        }
+
+    }
+    ol.list-editor-items{
+      list-style:decimal;
+    }
+
+
+  }
+  > .list-editor-footer{
+
+  }
+}

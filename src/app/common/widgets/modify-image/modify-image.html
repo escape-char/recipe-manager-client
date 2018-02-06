@@ -1,0 +1,21 @@
+<div class="group width-inherit expand-height">
+  <input  class="hide" #fileInput type="file" id="imgFile"
+   accept="image/*"
+  (change)="onChange($event)" >
+  <div class="image-container no-image"
+    (click)="onImportImage()"
+    *ngIf="!b64ImageFile">
+    <div class="icon-flex-center">
+        <i class="fa fa-image"></i>
+        <span class="no-image-text"> Import Image</span>
+    </div>
+  </div>
+  <div class="image-container has-image"
+    (click)="onImportImage()"
+    *ngIf="b64ImageFile">
+    <a class="image-remove-btn"
+     (click)="$event.stopPropagation();onRemoveImage()"><i class="fa fa-times-circle"></i></a>
+    <img  class="imported-image" src="{{b64ImageFile}}"/>
+  </div>
+
+</div>

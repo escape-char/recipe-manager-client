@@ -1,0 +1,19 @@
+<form class="pure-form pure-form-stacked"
+  [formGroup]="directionForm"
+  novalidate>
+  <fieldset>
+    <label>Direction
+    </label>
+     <textarea id="description"
+     class="small"
+     type="text"
+     name="description"
+     formControlName="description"
+      placeholder="Direction"></textarea>
+     <p
+     class="error"
+     [hidden]="getControl('description').untouched || !getErrors('description').required">
+       Direction is required.
+    </p>
+  </fieldset>
+</form>

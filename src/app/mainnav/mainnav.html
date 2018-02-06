@@ -1,0 +1,49 @@
+<div class="mainnav outer"
+  *ngIf="isLoggedIn"
+  [@toggleState]="navState"
+>
+<header class="mainnav__header">
+  <button class="mainnav-primary-action"
+   (click)="onAddRecipeClicked()">
+    <i class="fa fa-plus-circle"></i>
+    <span class="action-text">Add Recipe</span>
+  </button>
+  </header>
+<div class="middle">
+  <div class="inner group">
+    <ul class="mainnav__ul">
+      <li class="mainnav__li"
+        routerLink="/my-recipes"
+        routerLinkActive="mainnav__li--active">
+        <i class="mainnav__i fa fa-book"></i>
+        <a class="mainnav__link"
+        >
+          My Recipes</a>
+      </li>
+      <li class="mainnav__li"
+        routerLink="/browse"
+        routerLinkActive="mainnav__li--active"
+      >
+        <i class="mainnav__i fa fa-search"></i>
+        <a class="mainnav__link"
+          >Browse</a>
+      </li>
+      <li class="mainnav__li"
+        routerLink="/shopping-cart"
+        routerLinkActive="mainnav__li--active"
+      >
+        <i class="mainnav__i fa fa-shopping-cart"></i>
+        <a class="mainnav__link"
+          >Shopping Cart</a>
+      </li>
+      <li class="mainnav__li"
+        routerLink="/users"
+        routerLinkActive="mainnav__li--active"
+      >
+        <i class="mainnav__i fa fa-users"></i>
+        <a class="mainnav__link"
+            >Users</a>
+      </li>
+    </ul>
+</div>
+</div>

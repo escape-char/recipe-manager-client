@@ -1,0 +1,29 @@
+<form class="pure-form pure-form-stacked" novalidate
+     #f="ngForm"
+     (ngSubmit)="onSubmit(model, f)">
+     <p class="error" [hidden]="!error">
+        {{error}}
+     </p>
+  <fieldset>
+      <input type="text"
+        placeholder="Username"
+      name="username"
+      required
+      [(ngModel)]="model.username"
+      #username="ngModel">
+      <p class="error" [hidden]="username.valid || !username.touched">
+        Username is required.
+      </p>
+      <input type="password" placeholder="Password"
+      name="password"
+      #password="ngModel"
+      required
+      [(ngModel)]="model.password">
+      <p class="error" [hidden]="password.valid || !password.touched">
+        Password is required.
+      </p>
+      <button type="submit"
+       [disabled]="f.invalid || submitting"
+       class="pure-button pure-button-primary">Sign in</button>
+  </fieldset>
+</form>

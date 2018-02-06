@@ -1,0 +1,109 @@
+/**
+* Default HTML Styles
+*/
+
+html,body{
+  height:100%;
+  width:100%;
+}
+*{
+  letter-spacing: normal;
+}
+hr{
+  display: block;
+ height: 1px;
+ border: 0;
+ border-top: 1px solid #ccc;
+ margin: 1em 0;
+ padding: 0;
+}
+body {
+    background:#c5c5c5;
+    overflow:hidden;
+    letter-spacing: normal;
+}
+ul{
+  list-style: none;
+  list-style-type:none;
+}
+h1,h2,h3,h4,h5,h6, p{
+    letter-spacing:normal;
+
+}
+a{
+  &.link{
+    color:#52aae0;
+  }
+  &.link:hover{
+    color:darken(#52aae0, 10%)
+  }
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.section--left{
+  position:relative;
+  float:left;
+  min-width:300px;
+  width:50%;
+}
+.section--right{
+  position:relative;
+  float:left;
+  min-width:300px;
+  width:50%;
+}
+.section__header{
+  padding: 5px 10px 5px 10px;
+}
+.section__header__h2{
+  font-size: 1.2em;
+  color: #5c5c5c;
+
+}
+
+ng-component{
+  height:100%;
+  width:100%;
+}
+
+.fluid-container{
+  height:100%;
+  width:100%;
+
+}
+.expand-height{
+  height:100%;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%/*whatever width you want*/;
+}
+@media screen and (max-width: 568px){
+  .section--right{
+    min-width:100%
+   }
+   .section--left{
+     min-width:100%
+    }
+
+}

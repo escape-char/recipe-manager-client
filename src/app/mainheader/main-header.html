@@ -1,0 +1,24 @@
+<header class="mainheader">
+  <button class="mainheader__toggle-button"
+    (click)="onMainToggleClicked()"
+  >
+    <i class="fa fa-bars"></i>
+  </button>
+  <h1 class="mainheader__h1">Recipe Manager</h1>
+  <div class="notifications pull-left">
+  </div>
+  <div class="profile" *ngIf="isLoggedIn"
+    dropdownMenu>
+    <a class="profile__user dropdown-toggle">
+      <i class="profile__fa fa fa-user"></i>
+      <span class="profile__fullname">{{user.firstname}} {{user.lastname}}</span>
+      <i class="profile__fa fa fa-angle-down"></i>
+    </a>
+    <ul  id="profile-dropdown" class="dropdown-menu">
+        <i class="fa fa-caret-up arrow-up"></i>
+        <li class="dropdown-item">Settings</li>
+        <li  class="dropdown-item" (click)="onLogoutClicked()">
+          <a>Logout</a></li>
+    </ul>
+  </div>
+</header>

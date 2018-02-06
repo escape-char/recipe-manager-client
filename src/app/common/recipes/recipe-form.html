@@ -1,0 +1,54 @@
+<form class="pure-form pure-form-stacked"
+  [formGroup]="recipeForm"
+  novalidate>
+  <fieldset>
+    <label>Title
+      <field-spinner [showSpinner]="getControl('title').pending"></field-spinner>
+    </label>
+    <input id="recipe-title"
+    class=""
+    type="text"
+    name="title"
+    formControlName="title"
+     placeholder="Title">
+     <p
+     class="error"
+     [hidden]="getControl('title').untouched || !getErrors('title').required">
+       Title is required.
+    </p>
+    <p
+    class="error"
+    [hidden]="getControl('title').untouched || !getErrors('title').available">
+      Recipe title already exists.
+   </p>
+   <label>Source
+   </label>
+   <input id="recipe-source"
+     class=""
+     type="text"
+     name="source"
+     formControlName="source"
+      placeholder="Source">
+   <label>URL
+   </label>
+   <input id="recipe-url"
+     class=""
+     type="text"
+     name="url"
+     formControlName="url"
+      placeholder="URL">
+    <label>Description
+    </label>
+    <textarea id="recipe-description"
+    class=""
+    type="text"
+    name="description"
+    formControlName="description"
+     placeholder="Description"></textarea>
+     <p
+     class="error"
+     [hidden]="getControl('description').untouched || !getErrors('description').required">
+       Description is required.
+    </p>
+  </fieldset>
+</form>

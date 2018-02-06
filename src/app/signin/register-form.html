@@ -1,0 +1,120 @@
+<form class="pure-form pure-form-stacked"
+[formGroup]="registerForm"
+(ngSubmit)="onSubmit(registerForm)"
+novalidate
+>
+  <p class="error" *ngFor="let error of errors">
+    {{error}}
+  </p>
+  <fieldset>
+      <label for="username" type="text"
+        > Username
+        <field-spinner [showSpinner]="getControl('username').pending"></field-spinner>
+      </label>
+      <input id="username" type="text"
+      name="username"
+      formControlName="username"
+       placeholder="Username">
+       <p
+       class="error"
+       [hidden]="getControl('username').untouched || !getErrors('username').required">
+         Username is required.
+      </p>
+       <p class="error"
+       [hidden]="getControl('username').untouched || !getErrors('username').minlength">
+        {{constants.USERNAME_ERROR_MIN_LENGTH}}
+       </p>
+       <p class="error"
+       [hidden]="getControl('username').untouched || !getErrors('username').maxlength">
+        {{constants.USERNAME_ERROR_MAX_LENGTH}}
+       </p>
+       <p
+         class="error"
+       [hidden]="getControl('username').untouched || !getErrors('username').pattern">
+        {{constants.USERNAME_ERROR_REGEX}}
+       </p>
+       <p class="error"
+         [hidden]="getControl('username').untouched || !getErrors('username').available">
+         {{constants.USERNAME_ERROR_TAKEN}}
+       </p>
+      <label for="email" type="email" > Email
+        <field-spinner [showSpinner]="getControl('email').pending"></field-spinner>
+      </label>
+      <input id="email" type="email" placeholder="Email"
+        name="email"
+        formControlName="email">
+        <p class="error"
+          [hidden]="getControl('email').untouched || !getErrors('email').required">
+          Email is required.
+        </p>
+      <p class="error"
+        [hidden]="getControl('email').untouched || !getErrors('email').minlength">
+        {{constants.EMAIL_ERROR_MIN_LENGTH}}
+      </p>
+      <p class="error"
+        [hidden]="getControl('email').untouched || !getErrors('email').maxlength">
+        {{constants.EMAIL_ERROR_MAX_LENGTH}}
+      </p>
+      <p class="error"
+        [hidden]="getControl('email').untouched || !getErrors('email').pattern">
+        {{constants.EMAIL_ERROR_REGEX}}
+      </p>
+      <p class="error"
+        [hidden]="getControl('email').untouched || !getErrors('email').available">
+        {{constants.EMAIL_ERROR_TAKEN}}
+      </p>
+      <label for="firstname" > First Name
+      </label>
+      <input id="firstname" type="text" placeholder="First Name"
+        name="firstname"
+        formControlName="firstname">
+        <p class="error"
+          [hidden]="getControl('firstname').untouched || !getErrors('firstname').required">
+          First name is required.
+        </p>
+        <label for="lastname">Last Name
+        </label>
+        <input id="lastname" type="text" placeholder="Last Name"
+          name="lastname"
+          formControlName="lastname">
+          <p class="error"
+            [hidden]="getControl('lastname').untouched || !getErrors('lastname').required">
+            Last name is required.
+          </p>
+      <label for="password"
+      >Password </label>
+      <input id="password" type="password"
+      formControlName="password"
+      placeholder="Password">
+      <p class="error"
+        [hidden]="getControl('password').untouched || !getErrors('password').required">
+        Password is required.
+      </p>
+      <p class="error"
+        [hidden]="getControl('password').untouched || !getErrors('password').minlength">
+        {{constants.PASSWORD_ERROR_MIN_LENGTH}}
+      </p>
+      <p class="error"
+        [hidden]="getControl('password').untouched || !getErrors('password').validatePassword">
+        {{constants.PASSWORD_ERROR_COMPLEXITY}}
+      </p>
+      <label for="confirm-password"> Confirm Password </label>
+      <input id="confirm-password" type="password"
+       formControlName="confirmPassword"
+       placeholder="Confirm Password">
+       <p class="error"
+         [hidden]="getControl('confirmPassword').untouched || !getErrors('confirmPassword').required">
+         Confirm password is required.
+       </p>
+       <p class="error"
+         [hidden]="getControl('confirmPassword').untouched || !getRootErrors().confirmPassword">
+         {{constants.PASSWORD_ERROR_MISMATCH}}
+       </p>
+       <action-button defaultClasses="pure-button pure-button-primary"
+        [actionDisabled]="!canSubmit"
+        defaultType="submit"
+        busyLabel="Registering..."
+        defaultLabel="Register"
+        [busy]="submitting"></action-button>
+  </fieldset>
+</form>

@@ -1,0 +1,71 @@
+<section class="browse-panel recipe-list-container browse-panel--secondary pure-u-1 pure-u-md-10-24 pure-u-lg-10-24 pure-u-xl-6-24"
+  [@recipesListState]="state">
+<div class="browse-panel-header--secondary">
+  <a  class="link group back"
+   *ngIf="isMobile()"(click)="onBackClicked()">
+    <i class="fa fa-arrow-left"></i> Categories</a>
+  <p class="error" *ngIf="error">
+    {{error}}
+  </p>
+  <h2 class="browse-panel-header__title">Choose a Recipe</h2>
+  <ul class="browse-panel-actions pull-right">
+    <li class="browse-panel-actions__action">
+      <i class="fa fa-edit"></i>
+    </li>
+  </ul>
+  <div class="group browse-panel-search">
+    <form class="pure-form">
+      <input type="text" class="" placeholder="Search for a Recipe"
+       name="recipeSearch"
+       [(ngModel)]="search" (ngModelChange)="onSearchChanged()">
+    </form>
+  </div>
+</div>
+<div class="browse-panel-content">
+  <p class="recipe-list-empty" *ngIf="recipes.length == 0">
+    No Recipes Added.
+  </p>
+  <ul class="recipes-list"
+    infinite-scrolling [scrollPercentage]="scrollPercentage"
+    (onPercentageReached)="onFetchMore(data)">
+    <li class="group browse-item recipe-item"
+      [@recipeState]="r.state"
+      (@recipeState.done)="doNext()"
+       *ngFor="let r of staggeringRecipes">
+      <div class="recipe-item-no-image">
+      </div>
+      <div class="recipe-item-basic">
+        <h3 class="recipe-item-title">{{r.title}}
+          <div dropdownMenu>
+            <a class="recipe-item-cog browse-item-actions dropdown-toggle">
+              <span><i class="fa fa-cog"></i></span>
+            </a>
+            <ul class="dropdown-menu">
+              <i  class="fa fa-caret-up arrow-up"></i>
+              <li class="dropdown-item"
+                (click)="onEditClicked(r)">Edit</li>
+              <li class="dropdown-item"
+                (click)="onDeleteClicked(r)"
+              >Delete</li>
+            </ul>
+          </div>
+        </h3>
+        <h6 class="recipe-item-source" *ngIf="r.source"> {{r.source}} </h6>
+        <p class="recipe-item-description">
+          {{r.description | truncate : 50}}
+        </p>
+        <div class="recipe-item-details">
+          <a class="link recipe-item-count"><i class="fa fa-tags"></i> {{r.categories.length}}</a>
+          <a class="link recipe-item-count"><i class="fa fa-cutlery"></i> {{r.ingredients.length}}</a>
+        </div>
+        <p class="recipe-item-date">
+          {{r.createDateTime | fromNow}}
+        </p>
+      </div>
+    </li>
+    <li class="recipe-item-spinner" *ngIf="fetchingMore">
+      <i class="fa fa-circle-o-notch fa-spin"></i>
+    </li>
+  </ul>
+  </div>
+</section>

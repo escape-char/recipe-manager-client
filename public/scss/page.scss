@@ -1,0 +1,37 @@
+.page{
+  height:100%;
+  background:white;
+}
+.page-header{
+  background: $page_header_background;
+  padding-left:25px;
+  position:relative;
+  display:block;
+  z-index:12;
+}
+.page-header__title{
+  display:inline-block;
+  color:$page_header_color;
+  padding:5px;
+  font-size:1.5em;
+  margin:0;
+
+}
+.page-actions{
+  display:inline-block;
+  font-size:1.3em;
+  margin:0;
+  padding:0;
+  padding-top:8px;
+  color:$page_header_color;
+}
+.page-actions__action{
+  display:inline;
+  margin-right:10px;
+  cursor:pointer;
+}
+.page-actions__action:hover{
+  color:$page_actions_active_color;
+}
+div[dropdownMenu]{
+}

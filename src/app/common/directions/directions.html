@@ -1,0 +1,36 @@
+<section class="section list-editor">
+  <header class="list-editor-header">
+    <h2 class="list-editor-header-title"> Directions</h2>
+    <div class class="list-editor-header-actions">
+      <a class="list-editor-header-action"
+       (click)="onAddClicked()"><i class="fa fa-plus"></i></a>
+    </div>
+  </header>
+  <div class="list-editor-content">
+    <ul class="list-editor-items" *ngIf="directions.length > 0">
+       <li class="list-editor-item"
+         *ngFor="let d of directions">
+         <a class="list-editor-item-name"
+         (click)="onUpdateClicked(d)"
+         >{{d.description}}</a>
+         <div dropdownMenu>
+           <a class="list-editor-item-actions dropdown-toggle"><i class="fa fa-cog"></i></a>
+           <ul class="dropdown-menu">
+             <i  class="fa fa-caret-up arrow-up"></i>
+             <li class="dropdown-item"
+             (click)="onUpdateClicked(d)"
+             > Edit </li>
+             <li class="dropdown-item"
+              (click)="onDeleteClicked(d)"
+             >Delete </li>
+           </ul>
+         </div>
+        </li>
+    </ul>
+    <p *ngIf="directions.length == 0">
+      No Directions Added.
+    </p>
+  </div>
+  <footer class="list-editor-footer">
+  </footer>
+</section>

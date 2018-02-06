@@ -1,0 +1,44 @@
+<div>
+<label>Difficulty</label>
+<div class="difficulty-slider-container">
+  <div class="difficulty-slider" #slider
+  (mousemove)="onMouseMove($event)"
+  (mouseleave)="onMouseLeave($event)"
+  >
+    <div class="difficulty-label easy">
+      <span> Easy </span>
+    </div>
+    <div class="difficulty-label medium">
+      <span>Medium</span>
+    </div>
+    <div class="difficulty-label difficult">
+      <span>Difficult</span>
+    </div>
+    <div class="difficulty-slider-line"
+      (mousedown)="onLineMouseDown($event)">
+    </div>
+
+    <div class="difficulty-slider-overlay"
+     [ngStyle]="{'width': overlayWidth, 'background': overlayColor}">
+    </div>
+    <div class="difficulty-choice easy"
+      [ngStyle]="{'background': easyColor}"
+      (click)="onEasyClicked($event)">
+    </div>
+    <div class="difficulty-choice medium"
+      [ngStyle]="{'background': mediumColor}"
+      (click)="onMediumClicked($event)">
+    </div>
+    <div class="difficulty-choice difficult"
+      [ngStyle]="{'background': difficultColor}"
+     (click)="onDifficultClicked($event)">
+    </div>
+    <div class="difficulty-slider-handle"
+      [ngStyle]="{'left':handleXPos + 'px'}"
+      (mouseup)="onHandleMouseUp($event)"
+      (mousedown)="onHandleMouseDown($event)">
+      <span><i class="fa fa-arrows-h"></i></span>
+    </div>
+  </div>
+</div>
+</div>

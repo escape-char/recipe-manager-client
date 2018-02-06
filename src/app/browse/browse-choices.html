@@ -1,0 +1,19 @@
+<section class="browse-panel pure-u-1 pure-u-md-8-24 pure-u-lg-8-24 pure-u-xl-4-24"
+[@browseState]="state"
+>
+  <div class="browse-panel-header">
+    <h2 class="browse-panel-header__title">Browse Platforms</h2>
+  </div>
+  <div class="browse-panel-content">
+    <ul class="browse-items browse-platforms">
+      <li class="browse-item browse-platform"
+       *ngFor="let c of choices"
+       (click)="onChoiceClicked(c)"
+       [ngClass]="{'browse-item--active': c.selected}"
+        >
+        <i class="browse-item-icon fa {{c.iconClass}}" ></i>
+        <span class="browse-platform-label"> {{c.name}}</span>
+      </li>
+    </ul>
+  </div>
+</section>
